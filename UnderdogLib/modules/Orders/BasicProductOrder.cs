@@ -1,6 +1,6 @@
 namespace Underdog.Orders;
 
-public class GenericProductOrder
+public class BasicProductOrder
 {
     public string? codeId { get; set; }
     public string? productName { get; set; }

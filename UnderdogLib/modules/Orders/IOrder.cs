@@ -2,10 +2,11 @@ namespace Underdog.Orders;
 
 public interface IOrder
 {
+    public System.Guid orderId { get; }
     // contains a list of products
-    void AddProductToOrder(GenericProductOrder p);
-    void RemoveProductFromOrder(GenericProductOrder p);
-    void ChangeQty(GenericProductOrder p, int qty); 
-    List<GenericProductOrder> GetProductsFromOrder();
+    void AddProductToOrder(BasicProductOrder p);
+    void RemoveProductFromOrder(BasicProductOrder p);
+    void ChangeQty(BasicProductOrder p, int qty); 
+    List<BasicProductOrder> GetProductsFromOrder();
 }
 

@@ -1,6 +1,6 @@
 namespace UnderdogTests;
 
-public class UnitTest1
+public class OrdersTests
 {
     // 
     [Fact]
@@ -18,9 +18,9 @@ public class UnitTest1
         int _qty = 10;
         float _price = 1.99f;
 
-        var listProducts = new List<GenericProductOrder>();
+        var listProducts = new List<BasicProductOrder>();
         IOrder? order = new GenericOrder();
-        var product = new GenericProductOrder { codeId = _codeId, productName = _productName, quantity = _qty, unitPrice = _price };
+        var product = new BasicProductOrder { codeId = _codeId, productName = _productName, quantity = _qty, unitPrice = _price };
         Assert.True(condition: product.codeId == _codeId);
         Assert.True(condition: product.productName == _productName);
 
@@ -39,13 +39,13 @@ public class UnitTest1
         float _price = 1.99f;
 
         IOrder? order = new GenericOrder();
-        var product = new GenericProductOrder { codeId = _codeId, productName = _productName, quantity = _qty, unitPrice = _price };
+        var product = new BasicProductOrder { codeId = _codeId, productName = _productName, quantity = _qty, unitPrice = _price };
 
         order.AddProductToOrder(product);
 
         var products = order.GetProductsFromOrder();
 
-        List<GenericProductOrder> products1 = products.FindAll(p => p.codeId == _codeId);
+        List<BasicProductOrder> products1 = products.FindAll(p => p.codeId == _codeId);
         Assert.True(products1.Count == 1);
 
         Assert.True(condition: product.codeId == _codeId);
@@ -63,7 +63,7 @@ public class UnitTest1
         float _price = 1.99f;
 
         IOrder? order = new GenericOrder();
-        var product = new GenericProductOrder { codeId = _codeId, productName = _productName, quantity = _qty, unitPrice = _price };
+        var product = new BasicProductOrder { codeId = _codeId, productName = _productName, quantity = _qty, unitPrice = _price };
 
         order.AddProductToOrder(product);
 
@@ -101,7 +101,7 @@ public class UnitTest1
         float _price = 1.99f;
 
         IOrder? order = new GenericOrder();
-        var product = new GenericProductOrder { codeId = _codeId, productName = _productName, quantity = _qty, unitPrice = _price };
+        var product = new BasicProductOrder { codeId = _codeId, productName = _productName, quantity = _qty, unitPrice = _price };
 
         order.AddProductToOrder(product);
 

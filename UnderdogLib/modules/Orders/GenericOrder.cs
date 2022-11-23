@@ -3,14 +3,17 @@ namespace Underdog.Orders;
 public class GenericOrder : IOrder
 {
 
-    private readonly List<GenericProductOrder> listProducts; 
+    private readonly List<BasicProductOrder> listProducts; 
+    public System.Guid orderId { get; }
 
     public GenericOrder()
     {
-        listProducts = new List<GenericProductOrder>();
+        listProducts = new List<BasicProductOrder>();
+         orderId = Guid.NewGuid();
     }
 
-    void IOrder.AddProductToOrder(GenericProductOrder p)
+
+    public void AddProductToOrder(BasicProductOrder p)
     {
         var product = listProducts.Find(product => product.codeId == p.codeId);
         if (product != null)
@@ -24,7 +27,7 @@ public class GenericOrder : IOrder
         }
     }
 
-    void IOrder.ChangeQty(GenericProductOrder p, int qty)
+    public void ChangeQty(BasicProductOrder p, int qty)
     {
         var product = listProducts.Find(product => product.codeId == p.codeId);
 
@@ -45,12 +48,12 @@ public class GenericOrder : IOrder
         }
     }
 
-    List<GenericProductOrder> IOrder.GetProductsFromOrder()
+    public List<BasicProductOrder> GetProductsFromOrder()
     {
         return listProducts;
     }
 
-    void IOrder.RemoveProductFromOrder(GenericProductOrder p)
+    public void RemoveProductFromOrder(BasicProductOrder p)
     {
         listProducts.Remove(p);
     }
